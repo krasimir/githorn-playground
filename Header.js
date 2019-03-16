@@ -1,5 +1,10 @@
 import React from 'react';
 
 export default function Header({ children }) {
-  return <h1>{ children }</h1>;
+  return (
+    <header>
+      <h1>{ children }</h1>
+      <nav></nav>
+    </header>
+  );
 }

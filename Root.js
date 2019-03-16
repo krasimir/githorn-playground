@@ -7,7 +7,7 @@ function App() {
     <div>
       <Header>Hello world</Header>
     </div>
-  )
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));
