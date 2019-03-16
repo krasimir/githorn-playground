@@ -2,9 +2,6 @@ import React from 'react';
 
 export default function Header({ children }) {
   return (
-    <header>
-      <h1>{ children }</h1>
-      <nav></nav>
-    </header>
+    <h3>This is a title here</h3>
   );
 }
