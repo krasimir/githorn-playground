@@ -1,5 +1,5 @@
 /* A
-comment here
+Comment here.
 */
 
 import React from 'react';
@@ -66,8 +66,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
           <button className='brand cta' onClick={ () => comment('addSingleComment') }>
             Add single comment
           </button> }
-        { (!isEditing && handler.startReview) &&
-          <button className='brand cta' onClick={ () => comment('startReview') }>Start review</button> }
+          <button className='brand cta' onClick={ () => comment('startReview') }>Start review</button>
       </div> }
       { submitted && <div className='right mt05'><LoadingAnimation /></div> }
     </div>
