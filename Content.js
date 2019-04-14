@@ -82,7 +82,7 @@ Postman.propTypes = {
   resetOnSave: PropTypes.bool
 };
 Postman.defaultProps = {
-  className: '',
+  className: 'big',
   resetOnSave: false,
   onCancel: () => {},
   onSave: () => {}
