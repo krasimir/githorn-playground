@@ -5,7 +5,7 @@ import Header from './Header';
 function App() {
   return (
     <div>
-      <Header>Hey, there!</Header>
+      <Header>Hello world</Header>
     </div>
   );
 }
