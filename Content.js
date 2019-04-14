@@ -2,7 +2,7 @@
 Comment here.
 */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 /* eslint-disable no-sequences */
 import React, { useState } from 'react';
