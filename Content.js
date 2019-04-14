@@ -35,7 +35,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
   return (
     <div className={ `postman cf ${ className }` }>
       <div className='media small'>
-        <img src={ profile.avatar } className='avatar' title={ profile.login }/>
+        <img src={ profile.avatar } className='avatar bold' title={ profile.login }/>
         <textarea
           value={ text ? text : '' }
           placeholder='Reply'
