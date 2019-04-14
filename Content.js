@@ -5,7 +5,7 @@ Comment here.
 import React from 'react';
 
 /* eslint-disable no-sequences */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import roger from '../jolly-roger';
