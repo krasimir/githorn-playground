@@ -12,6 +12,7 @@ import roger from '../jolly-roger';
 import { LoadingAnimation } from './Loading';
 
 export default function Postman({ handler, value, className, onCancel, onSave, resetOnSave }) {
+  const [ isVisible, setVisibility ] = useState(false);
   const [ profile ] = roger.useState('profile');
   const [ text, type ] = useState(value ? value.text : null);
   const [ submitted, submit ] = useState(false);
@@ -34,7 +35,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
 
   return (
     <div className={ `postman cf ${ className }` }>
-      <div className='media small'>
+      <div className='media small' data-visible={ isVisible ? '1' : '0' }>
         <img src={ profile.avatar } className='avatar bold' title={ profile.login }/>
         <textarea
           value={ text ? text : '' }
@@ -42,7 +43,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
           className={ text !== null ? 'type' : '' }
           onClick={ () => type(text || '') }
           disabled={ submitted }
-          onChange={ e => type(e.target.value) } />
+          onChange={ e => (type(e.target.value), setVisiblity(true)) } />
       </div>
       { (isEditing && !submitted) && <div className='left mt05 ml2'>
         <button className='light' onClick={ () => {
