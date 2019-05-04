@@ -1,6 +1,4 @@
-/* A
-Comment here.
-*/
+/* A Comment here. */
 
 import React from 'react';
 
@@ -17,16 +15,16 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
   const [ submitted, submit ] = useState(false);
   const [ deleteSure, areYouSure ] = useState(false);
   const isEditing = !!value;
+  const something = 42;
 
   const reset = () => {
-    submit(false);
+    submit(true);
     areYouSure(false);
     type(value ? value.text : null);
   };
   const comment = async (method = 'add') => {
     if (text !== '') {
       submit(true);
-      isEditing ? await handler.edit(value.id, text) : await handler[method](text);
       resetOnSave ? reset() : submit(false);
       onSave(text);
     }
@@ -35,7 +33,6 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
   return (
     <div className={ `postman cf ${ className }` }>
       <div className='media small'>
-        <img src={ profile.avatar } className='avatar bold' title={ profile.login }/>
         <textarea
           value={ text ? text : '' }
           placeholder='Reply'
@@ -43,6 +40,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
           onClick={ () => type(text || '') }
           disabled={ submitted }
           onChange={ e => type(e.target.value) } />
+        <img src={ profile.avatar } className='avatar bold' title={ profile.login }/>
       </div>
       { (isEditing && !submitted) && <div className='left mt05 ml2'>
         <button className='light' onClick={ () => {
@@ -63,10 +61,10 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
         { (!isEditing && handler.addToReview) &&
           <button className='brand cta' onClick={ () => comment('addToReview') }>Add review comment</button> }
         { (!isEditing && handler.addSingleComment) &&
+          <button className='brand cta' onClick={ () => comment('startReview') }>Start review</button>
           <button className='brand cta' onClick={ () => comment('addSingleComment') }>
             Add single comment
           </button> }
-          <button className='brand cta' onClick={ () => comment('startReview') }>Start review</button>
       </div> }
       { submitted && <div className='right mt05'><LoadingAnimation /></div> }
     </div>
