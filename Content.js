@@ -19,7 +19,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
   const isEditing = !!value;
 
   const reset = () => {
-    submit(false);
+    submit(false); // Are you sure?
     areYouSure(false);
     type(value ? value.text : null);
   };
@@ -35,7 +35,6 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
   return (
     <div className={ `postman cf ${ className }` }>
       <div className='media small'>
-        <img src={ profile.avatar } className='avatar' title={ profile.login }/>
         <textarea
           value={ text ? text : '' }
           placeholder='Reply'
@@ -44,6 +43,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
           disabled={ submitted }
           onChange={ e => type(e.target.value) } />
       </div>
+      <img src={ profile.avatar } className='avatar' title={ profile.login }/>
       { (isEditing && !submitted) && <div className='left mt05 ml2'>
         <button className='light' onClick={ () => {
           if (!deleteSure) {
@@ -69,7 +69,7 @@ export default function Postman({ handler, value, className, onCancel, onSave, r
         { (!isEditing && handler.startReview) &&
           <button className='brand cta' onClick={ () => comment('startReview') }>Start review</button> }
       </div> }
-      { submitted && <div className='right mt05'><LoadingAnimation /></div> }
+      { submitted && false && <div className='right mt05'><LoadingAnimation /></div> }
     </div>
   );
 }
