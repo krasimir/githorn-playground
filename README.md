@@ -1,1 +1,1 @@
-A repo for testing while developing GitHorn
+A repo for testing while developing GitHorn.
